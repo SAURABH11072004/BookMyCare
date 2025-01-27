@@ -7,3 +7,4 @@ npm install bcrypt
 npm install express-session
 npm install path
 npm install mysql
+(all packages are already in node modules)
