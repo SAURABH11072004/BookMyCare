@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/globals.css">
+  <link rel="stylesheet" href="/css/profile.css">
+  <title>Profile</title>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1>Welcome, <%= user.first_name %> <%= user.last_name %>!</h1>
+    </div>
+    <div class="profile-info">
+      <p><strong>Email:</strong> <%= user.email %></p>
+      <p><strong>Gender:</strong> <%= user.gender %></p>
+      <p><strong>Phone Number:</strong> <%= user.phone_number %></p>
+      <p><strong>Date of Birth:</strong> <%= user.dob %></p>
+      <p><strong>Location:</strong> <%= user.location %></p>
+    </div>
+    <div class="profile-actions">
+      <a href="/home3.html" class="button">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

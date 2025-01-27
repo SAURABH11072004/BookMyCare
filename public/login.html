@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login</title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  <header class="header">
+    <h1>BookMyCare</h1>
+  </header>
+
+  <main class="form-container">
+    <div class="login-section">
+      <h2>Log In</h2>
+      <form id="loginForm">
+        <div class="form-row">
+          <input type="text" id="username" name="username" placeholder="Email Id" required>
+        </div>
+        <div class="form-row">
+          <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn login-btn">Log In</button>
+      </form>
+      <p id="message" style="color: red; margin-top: 10px;"></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 BookMyCare. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevent the default form submission behavior
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          // Redirect to main.html on successful login
+          window.location.href = '/home3.html';
+        } else {
+          // Show error message
+          document.getElementById('message').textContent = data.message;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('message').textContent = 'An error occurred. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>
