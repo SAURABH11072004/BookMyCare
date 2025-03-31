@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyCare - Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .header {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00796b;
+        }
+        .container {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        h2 {
+            color: #00796b;
+            margin-bottom: 30px;
+            font-size: 22px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #00796b;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 40px;
+            cursor: pointer;
+        }
+        .btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: calc(100% - 24px); /* Adjusts width to match input fields */
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px; /* Ensures spacing between password input and button */
+}
+
+        .btn:hover {
+            background-color: #005a4f;
+        }
+    </style>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var eyeIcon = document.getElementById("eye-icon");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.textContent = "👁";
+            } else {
+                passwordField.type = "password";
+                eyeIcon.textContent = "👁‍🗨";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">BookMyCare</div>
+    <div class="container">
+        <h2>Enter Admin Details</h2>
+        <form>
+            <div class="input-group">
+                <label for="username">User Name</label>
+                <input type="text" id="username" placeholder="Enter your Name">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your Password">
+                <span class="eye-icon" id="eye-icon" onclick="togglePassword()">👁‍🗨</span>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn">Log In</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
